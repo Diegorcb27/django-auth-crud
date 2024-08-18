@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% extends 'tasks/base.html' %}
+
+    {% block content %}
+
+   <main class="container">
+    <div class="row">
+        <div class="col-md-4 offset-md-4">
+            <form action="/signup/" method="POST" class="card card-body mt-5"> <!--el action e para enviar la info del formulario, va a buscar una ruta llamada signup, el method e importante para que no e vea en la url los datos del user-->
+
+                <h1 class="text-center">SING UP</h1>
+                {{error}}
+                {% csrf_token %} <!--eto sirve para mostrar el token del formulario para evitar falsificaciones del formularios-->
+                
+                <!-- {{form}} el as_p en el formulario ordena mejor el formulario -->
+                <div class="mb-3">
+                    <label for="username">Username:</label>
+                    <input type="text" name="username" id="username" class="form-control" placeholder="Write your username">
+                </div>
+
+                <div class="mb-3">
+                    <label for="password1">Password:</label>
+                    <input type="password" name="password1" id="password1" class="form-control" placeholder="Write your password">
+                </div>
+
+                <div class="mb-3">
+                    <label for="password2">Confirm your password:</label>
+                    <input type="password" name="password2" id="password2" class="form-control" placeholder="Confirm your password">
+                </div>
+
+                <button class="btn btn-primary">
+                    signup
+                </button>
+            </form>
+        </div>
+    </div>
+   </main>
+   
+   
+
+    {% endblock %}
+    
+</body>
+</html>
