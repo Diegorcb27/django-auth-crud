@@ -19,7 +19,7 @@ from django.contrib.auth.decorators import login_required #esto es para proteger
     
 def home(request):
     title = "Hello World"
-    return render(request, 'tasks/home.html', {"title": title })
+    return render(request, 'tasks/home.html')
 
 
 
